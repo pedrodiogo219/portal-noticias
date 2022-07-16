@@ -14,10 +14,7 @@ import NotFound from './NotFound.vue';
   export default {
     created() {
         this.noticias = JSON.parse(localStorage.getItem("noticias")) || [];
-        console.log(this.noticias);
-        console.log(this.$route.params.id);
         this.noticia = this.noticias.find(n => n.id === Number(this.$route.params.id));
-        console.log(this.noticia);
     },
     components: { NotFound }
 };

@@ -21,12 +21,6 @@
             }
         }
     },
-    created() {
-        console.log('created', this.$parent.noticias.value);
-    },
-    mounted(){
-        console.log('mounted', this.$parent.noticias.value);
-    },
     components: { ResumoNoticia }
 }
 </script>
@@ -36,7 +30,7 @@
 
 #listaNoticias{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
 }
 
