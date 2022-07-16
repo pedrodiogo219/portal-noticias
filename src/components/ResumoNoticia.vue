@@ -1,6 +1,6 @@
 <template>
     <div id="container">
-        <h3>{{ noticia.titulo }}</h3>
+        <h3><router-link :to="'/noticia/' + noticia.id">{{ noticia.titulo }}</router-link></h3>
         <p>{{ noticia.descricao }}</p>
     </div>
 </template>
