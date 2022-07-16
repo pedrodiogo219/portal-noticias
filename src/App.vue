@@ -1,7 +1,7 @@
 <template>
   <nav>
     <router-link to="/">Feed</router-link> |
-    <router-link to="/noticia">Noticia</router-link>
+    <router-link to="/nova-noticia">Criar nova noticia</router-link>
   </nav>
   <router-view/>
 </template>
