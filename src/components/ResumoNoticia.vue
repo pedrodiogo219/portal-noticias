@@ -1,0 +1,1 @@
+<template><h3>resumo noticia</h3></template>
