@@ -4,19 +4,19 @@
         <div>
             <label for="titulo">Titulo</label>
             <input id="titulo" type="text" placeholder="Ex: O Circo está na cidade!" v-model="titulo"/>
-            {{ titulo }}
+            <!-- {{ titulo }} -->
         </div>
 
         <div>
             <label for="descricao">Descricao</label>
             <textarea v-model="descricao"></textarea>
-            {{ descricao }}
+            <!-- {{ descricao }} -->
         </div>
 
         <div>
             <label for="corpo">Corpo</label>
             <textarea v-model="corpo"></textarea>
-            {{ corpo }}
+            <!-- {{ corpo }} -->
         </div>
 
 
