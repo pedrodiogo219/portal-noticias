@@ -1,8 +1,10 @@
 <template>
     <h1>feed</h1>
 
+    <input type="text" v-model="input" placeholder="buscar noticia..." />
+
     <div id="listaNoticias" v-if="noticiasExists()">
-        <ResumoNoticia v-for="(noticia, index) in this.$parent.noticias.value" :key="index" :noticia="noticia"></ResumoNoticia>
+        <ResumoNoticia v-for="(noticia, index) in filtraNoticias()" :key="index" :noticia="noticia"></ResumoNoticia>
     </div>
     <div v-else>
         <p>Nenhuma notícia disponivel</p>
@@ -13,18 +15,31 @@
 </template>
 
 <script>
-    import router from '@/router';
+import router from '@/router';
 import ResumoNoticia from './ResumoNoticia.vue';
-
+import { ref } from 'vue';
     export default {
+   
+    input: ref(''),
     data() {
         return {
+            input: ref(''),
             noticiasExists: () => {
                 return (JSON.stringify(this.$parent.noticias.value) != '[]')
             }
         }
     },
+    created(){
+      this.input = ref('');  
+    },
     methods:{
+        filtraNoticias(){
+            return  this.$parent.noticias.value.filter(
+                        (noticia) => {
+                        return noticia.titulo.toLowerCase().includes(this.input.toLowerCase())
+                        }
+                    );
+        },
         exemplos(){
             
             const noticiasExemplo = [
