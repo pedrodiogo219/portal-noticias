@@ -1,6 +1,9 @@
 <template>
   <div v-if="this.noticia != undefined">
     <h1>{{ this.noticia.titulo }}</h1>
+    <div>
+      <img v-bind:src="this.noticia.imagem">
+    </div>
     <strong> {{ this.noticia.descricao }}</strong>
     <p>{{ this.noticia.corpo }}</p>
   </div>

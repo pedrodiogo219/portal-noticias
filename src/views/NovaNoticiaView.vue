@@ -19,6 +19,11 @@
             <!-- {{ corpo }} -->
         </div>
 
+        <div>
+            <label for="imagem">Imagem</label>
+            <textarea v-model="imagem" placeholder="link da imagem"></textarea>
+            <!-- {{ imagem }} -->
+        </div>
 
         <input type="submit" value="Enviar notícia"/>
     </form>
@@ -33,7 +38,8 @@ export default {
         return {
             titulo: '',
             descricao: '',
-            corpo: ''
+            corpo: '',
+            imagem: ''
         }
     },
 
@@ -57,7 +63,8 @@ export default {
                 id: newId,
                 titulo: this.titulo,
                 descricao: this.descricao,
-                corpo: this.corpo
+                corpo: this.corpo,
+                imagem: this.imagem
             });
 
             localStorage.setItem("noticias", JSON.stringify(this.noticias));
