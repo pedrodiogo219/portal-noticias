@@ -1,27 +1,27 @@
 <template>
-    <h1>nova noticia</h1>
-    <form @submit.prevent="submit">
-        <div>
+    <h1>Nova notícia</h1>
+    <form @submit.prevent="submit" class="form-container">
+        <div class="form-field">
             <label for="titulo">Titulo</label>
             <input id="titulo" type="text" placeholder="Ex: O Circo está na cidade!" v-model="titulo"/>
             <!-- {{ titulo }} -->
         </div>
 
-        <div>
+        <div class="form-field">
             <label for="descricao">Descricao</label>
             <textarea v-model="descricao"></textarea>
             <!-- {{ descricao }} -->
         </div>
 
-        <div>
+        <div class="form-field">
             <label for="corpo">Corpo</label>
             <textarea v-model="corpo"></textarea>
             <!-- {{ corpo }} -->
         </div>
 
-        <div>
+        <div class="form-field">
             <label for="imagem">Imagem</label>
-            <textarea v-model="imagem" placeholder="link da imagem"></textarea>
+            <input v-model="imagem" placeholder="link da imagem"/>
             <!-- {{ imagem }} -->
         </div>
 
@@ -74,3 +74,18 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+
+.form-field{
+    padding: 10px 20px;
+    justify-content: space-between;
+    display: flex;
+    width: 50%;
+    margin: auto;
+}
+
+label {
+    padding-right: 10px;
+}
+</style>

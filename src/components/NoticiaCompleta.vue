@@ -22,3 +22,12 @@ import NotFound from './NotFound.vue';
     components: { NotFound }
 };
 </script>
+
+<style scoped>
+
+img{
+  max-width: 80%;
+  max-height: 100%;
+}
+
+</style>
