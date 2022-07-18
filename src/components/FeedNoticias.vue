@@ -1,5 +1,5 @@
 <template>
-    <h1>feed</h1>
+    <h1>Últimas notícias</h1>
 
     <input type="text" v-model="input" placeholder="buscar noticia..." />
 
@@ -72,6 +72,13 @@ import { ref } from 'vue';
                             San Francisco-based Yelp announced a remote-first work model in February 2021. Stoppelman said Yelp has proven it can be successful with a remote workforce, noting that the company achieved record revenue of just over $1 billion in 2021.`,
                     imagem: "https://geekblog.com.br/wp-content/uploads/2015/03/yelp_estimate_tool.jpg"
                 },
+                {
+                    id: 4,
+                    titulo: "Cachorrinho Bonitinho",
+                    descricao: "Examente aquilo que você procura",
+                    corpo: "Aprecie essa bela imagem de um cachorrinho",
+                    imagem: "https://s2.glbimg.com/eQkhAB2FrlFSMj_Jbkw024ueqao=/e.glbimg.com/og/ed/f/original/2019/01/19/50898568_10157219683273254_5268539131058716672_o.jpg"
+                }
             ]
 
             localStorage.setItem("noticias", JSON.stringify(noticiasExemplo))

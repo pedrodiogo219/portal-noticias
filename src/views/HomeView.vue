@@ -29,3 +29,11 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+
+.home{
+  padding: 0 40px;
+}
+
+</style>
