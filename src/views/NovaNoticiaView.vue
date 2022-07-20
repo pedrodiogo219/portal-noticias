@@ -81,6 +81,9 @@ input{
     font-family: 'Times New Roman', Times, serif;
     border: 1px solid black;
 }
+textarea{
+    font-family: 'Times New Roman', Times, serif;
+}
 
 .form-field{
     font-size: 16px;
