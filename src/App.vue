@@ -13,10 +13,15 @@
         
         <div class="navbar">
             <div class="logo-container">
-                <div id="text-logo">Udi City Times</div>
+                <a href="/">
+                    <img id="logo" src="@/assets/prog-1.png" alt="" />
+                </a>
+                <a href="/">
+                    <div id="text-logo">Udi City Times</div>
+                </a>
             </div>
             <div class="right-buttons">
-                <img id="logo" src="@/assets/prog-1.png" alt="" />
+                
     
                 
                 <a href="/">Feed</a>
@@ -34,7 +39,7 @@
 
 <style>
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
@@ -87,7 +92,7 @@ body {
 .main {
     padding: 16px;
     margin-top: 80px;
-    height: 3000px; /* Used in this example to enable scrolling */
+    /* height: 3000px; Used in this example to enable scrolling */
 }
 
 #navbar li {
@@ -109,6 +114,9 @@ body {
 .logo-container{
     display: flex;
     width: 100%;
+}
+.logo-container a{
+    padding: 0px;
 }
 #text-logo{
     color: #f2f2f2;

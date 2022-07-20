@@ -77,12 +77,28 @@ export default {
 
 <style scoped>
 
+input{
+    font-family: 'Times New Roman', Times, serif;
+    border: 1px solid black;
+}
+
 .form-field{
+    font-size: 16px;
     padding: 10px 20px;
     justify-content: space-between;
     display: flex;
-    width: 50%;
+    width: 90%;
     margin: auto;
+}
+
+.form-field input{
+    width: 65%;
+    font-size: 16px;
+}
+
+.form-field textarea{
+    width: 65%;
+    font-size: 16px;
 }
 
 label {
