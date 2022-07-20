@@ -16,7 +16,7 @@
                 <div id="text-logo">Udi City Times</div>
             </div>
             <div class="right-buttons">
-                <img id="logo" src="@/assets/prog-1.jpg" alt="" />
+                <img id="logo" src="@/assets/prog-1.png" alt="" />
     
                 
                 <a href="/">Feed</a>
