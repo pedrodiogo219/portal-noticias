@@ -10,25 +10,26 @@
         />
     </head>
     <header>
+        
         <div class="navbar">
-            <a href="#" id="logo">
-                <img src="@/assets/prog-1.jpg" alt="" />
-            </a>
-            <a href="index">Home</a>
-            <a href="nova-noticia">News</a>
-            <a href="#contact">Contact</a>
-            <input
-                type="text"
-                name="q"
-                id="search"
-                class="form-control mr-sm-2"
-                placeholder="Pesquisar"
-                aria-label="Search"
-            />
+            <div class="logo-container">
+                <div id="text-logo">Udi City Times</div>
+            </div>
+            <div class="right-buttons">
+                <img id="logo" src="@/assets/prog-1.jpg" alt="" />
+    
+                
+                <a href="/">Feed</a>
+                <a href="nova-noticia">Nova noticia</a>
+            </div>
+            
+            <!-- <a href="#contact" :disabled='true' >Contact</a> -->
         </div>
-        <h2>Portal de noticias h2</h2>
     </header>
-    <router-view />
+    
+    <div class="main">
+        <router-view />
+    </div>
 </template>
 
 <style>
@@ -39,6 +40,7 @@
     text-align: center;
     color: #2c3e50;
 }
+
 
 nav {
     padding: 30px;
@@ -60,12 +62,15 @@ body {
     overflow: hidden;
     background-color: #333;
     position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
     top: 0;
     width: 100%;
 }
 
 .navbar a {
-    float: right;
     display: block;
     color: #f2f2f2;
     text-align: center;
@@ -81,8 +86,8 @@ body {
 
 .main {
     padding: 16px;
-    margin-top: 30px;
-    height: 1500px; /* Used in this example to enable scrolling */
+    margin-top: 80px;
+    height: 3000px; /* Used in this example to enable scrolling */
 }
 
 #navbar li {
@@ -90,15 +95,31 @@ body {
     padding: 5px;
 }
 
-#logo img {
+#logo {
     /*largura*/
     width: 50px;
+    height: 50px;
 }
 
+.right-buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.logo-container{
+    display: flex;
+    width: 100%;
+}
+#text-logo{
+    color: #f2f2f2;
+    font-size: 32px;
+    padding: 10px;
+}
 #search {
     margin: 10px;
     padding: 4px;
     width: 15%;
-    margin-left: 1100px;
 }
+
+
 </style>

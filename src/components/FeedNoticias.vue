@@ -1,7 +1,14 @@
 <template>
     <h1>Últimas notícias</h1>
 
-    <input type="text" v-model="input" placeholder="buscar noticia..." />
+    <!-- <input type="text" v-model="input" placeholder="buscar noticia..." /> -->
+    <input
+        v-model="input"
+        type="text"
+        name="q"
+        id="search"
+        placeholder="Buscar notícia..."
+        aria-label="Search"/>
 
     <div id="listaNoticias" v-if="noticiasExists()">
         <ResumoNoticia v-for="(noticia, index) in filtraNoticias()" :key="index" :noticia="noticia"></ResumoNoticia>
@@ -97,6 +104,10 @@ import { ref } from 'vue';
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+#search{
+    min-width: 200px;
 }
 
 </style>
