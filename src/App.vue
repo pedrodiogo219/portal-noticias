@@ -12,7 +12,7 @@
     <header>
         <div class="navbar">
             <a href="#" id="logo">
-                <img src="@/assets/prog-1.jpg" alt="" />
+                <img src="@/assets/prog-1.png" alt="" />
             </a>
             <a href="index">Home</a>
             <a href="nova-noticia">News</a>
