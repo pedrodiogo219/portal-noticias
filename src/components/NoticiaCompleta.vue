@@ -30,4 +30,9 @@ img{
   max-height: 100%;
 }
 
+p{
+  text-align: justify;
+  padding: 0 20px;
+}
+
 </style>
