@@ -16,7 +16,7 @@
     <div v-else>
         <p>Nenhuma notícia disponivel</p>
 
-        <button v-on:click="exemplos()">Adicionar exemplos de notícias</button>
+        <button v-on:click="exemplos()">Adicionar exemplos de notícias e jornalistas</button>
     </div>
 
 </template>
