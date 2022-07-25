@@ -18,8 +18,12 @@ const routes = [
   {
     path: '/nova-noticia',
     name: 'nova-noticia',
-
     component: () => import('../views/NovaNoticiaView.vue')
+  },
+  {
+    path: '/novo-jornalista',
+    name: 'novo-jornalista',
+    component: () => import('../views/NovoJornalistaView.vue')
   }
 ]
 
