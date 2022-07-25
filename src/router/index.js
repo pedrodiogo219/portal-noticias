@@ -20,6 +20,11 @@ const routes = [
     name: 'nova-noticia',
 
     component: () => import('../views/NovaNoticiaView.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: () => import('../components/NotFound.vue')
   }
 ]
 
