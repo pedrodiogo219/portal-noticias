@@ -23,7 +23,7 @@
 
 <script>
 import router from '@/router';
-
+import axios from 'axios';
 
 export default {
     name: "NovoJornalistaView",
@@ -36,7 +36,7 @@ export default {
     },
 
     methods: {
-        submit(){
+        async submit(){
             if (this.nome.trim() === ''){
                 alert('Formulário inválido: Nome não pode ser vazio');
                 return;
@@ -47,26 +47,39 @@ export default {
                 return;
             }
 
-            this.jornalistas = JSON.parse(localStorage.getItem('jornalistas')) || [];
-
-            let newId = 1;
-
-            if (this.jornalistas.length !== 0){
-                newId = Math.max(...this.jornalistas.map(j => j.id)) + 1;
-            }
-
-            this.jornalistas.push({
-                id: newId,
+            const novoJornalista = {
                 nome: this.nome,
                 cpf: this.cpf,
                 telefone: this.telefone
-            });
+            }
 
-            localStorage.setItem('jornalistas', JSON.stringify(this.jornalistas));
-            
-            alert('Jornalista cadastrado com sucesso');
+            await axios.post("http://localhost:8080/api/jornalista", novoJornalista)
+                .then(()=>{
+                    alert('Jornalista cadastrado com sucesso');
+                    router.push('/nova-noticia');
+                })
+                .catch(function (error) {
+                    let error_msg = '[Erro] ' + error.message
+                    if (error.response) {
+                        // The request was made and the server responded with a status code
+                        // that falls out of the range of 2xx
+                        console.log(error.response.data);
+                        console.log(error.response.status);
+                        console.log(error.response.headers);
+                        error_msg += '\n' + error.response.data.message;
+                    } else if (error.request) {
+                        // The request was made but no response was received
+                        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                        // http.ClientRequest in node.js
+                        console.log(error.request);
+                    } else {
+                        // Something happened in setting up the request that triggered an Error
+                        console.log('Error', error.message);
+                    }
 
-            router.push('/nova-noticia');
+                    console.log(error.config);
+                    alert(error_msg);
+                }) 
 
         }
     }
