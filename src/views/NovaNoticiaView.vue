@@ -46,9 +46,16 @@
 
 <script>
 import router from '@/router';
+import axios from 'axios';
 
 export default {
     name: "NovaNoticiaView",
+    async created() {
+
+        const response = await axios.get("http://localhost:8080/lab5/allJornalista");
+        console.log(response)
+        this.options = response.json();
+    },
     data() {
         return {
             titulo: '',
@@ -57,7 +64,7 @@ export default {
             imagem: '',
             idJornalista: 0,
 
-            options: JSON.parse(localStorage.getItem('jornalistas')) || []
+            // options: JSON.parse(localStorage.getItem('jornalistas')) || []
         }
     },
 
