@@ -51,10 +51,8 @@ import axios from 'axios';
 export default {
     name: "NovaNoticiaView",
     async created() {
-
-        const response = await axios.get("http://localhost:8080/lab5/allJornalista");
-        console.log(response)
-        this.options = response.json();
+        const response = await axios.get("http://localhost:8080/api/jornalista");
+        this.options = response.data;
     },
     data() {
         return {
@@ -64,6 +62,7 @@ export default {
             imagem: '',
             idJornalista: 0,
 
+            options: this.options
             // options: JSON.parse(localStorage.getItem('jornalistas')) || []
         }
     },
