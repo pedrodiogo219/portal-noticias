@@ -2,31 +2,46 @@
     <h1>Nova notícia</h1>
     <form @submit.prevent="submit" class="form-container">
         <div class="form-field">
-            <label for="titulo">Titulo</label>
+            <label for="titulo">Titulo*</label>
             <input id="titulo" type="text" placeholder="Ex: O Circo está na cidade!" v-model="titulo"/>
             <!-- {{ titulo }} -->
         </div>
 
         <div class="form-field">
-            <label for="descricao">Descricao</label>
+            <label for="descricao">Descricao*</label>
             <textarea v-model="descricao"></textarea>
             <!-- {{ descricao }} -->
         </div>
 
         <div class="form-field">
-            <label for="corpo">Corpo</label>
+            <label for="corpo">Corpo*</label>
             <textarea v-model="corpo"></textarea>
             <!-- {{ corpo }} -->
         </div>
 
         <div class="form-field">
-            <label for="imagem">Imagem</label>
+            <label for="imagem">Imagem*</label>
             <input v-model="imagem" placeholder="link da imagem"/>
             <!-- {{ imagem }} -->
         </div>
 
+        <div class="form-field">
+            <label for="jornalista">Jornalista*</label>
+            <select v-model="idJornalista">
+                <option disabled value=0>Selecione o jornalista</option>
+                <option v-for="option in options" :key="option.id" :value="option.id">
+                    {{ option.nome }}
+                </option> 
+            </select>
+        </div>
+
         <input type="submit" value="Enviar notícia"/>
     </form>
+
+    <div class="link">
+        Seu jornalista não está cadastrado?
+        <a href="/novo-jornalista">Cadastre um jornalista</a>
+    </div>
 </template>
 
 <script>
@@ -39,13 +54,16 @@ export default {
             titulo: '',
             descricao: '',
             corpo: '',
-            imagem: ''
+            imagem: '',
+            idJornalista: 0,
+
+            options: JSON.parse(localStorage.getItem('jornalistas')) || []
         }
     },
 
     methods: {
         submit(){
-            if (this.titulo.trim() === '' || this.descricao.trim() === '' || this.corpo.trim() === ''){
+            if (this.titulo.trim() === '' || this.descricao.trim() === '' || this.corpo.trim() === '' || this.idJornalista === 0){
                 alert('Formulário inválido: Nenhum campo pode ficar vazio.');
                 return
             }
@@ -64,7 +82,8 @@ export default {
                 titulo: this.titulo,
                 descricao: this.descricao,
                 corpo: this.corpo,
-                imagem: this.imagem
+                imagem: this.imagem,
+                idJornalista: this.idJornalista
             });
 
             localStorage.setItem("noticias", JSON.stringify(this.noticias));
@@ -104,7 +123,16 @@ textarea{
     font-size: 16px;
 }
 
+.form-field select{
+    width: 65%;
+    font-size: 16px;
+}
+
 label {
     padding-right: 10px;
+}
+
+.link{
+    padding-top: 20px;
 }
 </style>

@@ -21,11 +21,8 @@
                 </a>
             </div>
             <div class="right-buttons">
-                
-    
-                
                 <a href="/">Feed</a>
-                <a href="nova-noticia">Nova noticia</a>
+                <a href="/nova-noticia">Nova noticia</a>
             </div>
             
             <!-- <a href="#contact" :disabled='true' >Contact</a> -->
