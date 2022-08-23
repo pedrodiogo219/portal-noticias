@@ -68,23 +68,15 @@ export default {
     },
 
     methods: {
-        submit(){
+        async submit(){
             if (this.titulo.trim() === '' || this.descricao.trim() === '' || this.corpo.trim() === '' || this.idJornalista === 0){
                 alert('Formulário inválido: Nenhum campo pode ficar vazio.');
                 return
             }
 
             this.noticias = JSON.parse(localStorage.getItem('noticias')) || [];
-    
-            let newId = 1;
-
-            if (this.noticias.length !== 0){
-                newId = Math.max(...this.noticias.map(n => n.id)) + 1;
-            }
-
 
             this.noticias.push({
-                id: newId,
                 titulo: this.titulo,
                 descricao: this.descricao,
                 corpo: this.corpo,
@@ -92,9 +84,39 @@ export default {
                 idJornalista: this.idJornalista
             });
 
-            localStorage.setItem("noticias", JSON.stringify(this.noticias));
+            //localStorage.setItem("noticias", JSON.stringify(this.noticias));
+            await axios.post("http://localhost:8080/api/noticia", {
+                titulo: this.titulo,
+                descricao: this.descricao,
+                corpo: this.corpo,
+                imagem: this.imagem,
+                idJornalista: this.idJornalista
+            }).then(() => {
+                alert('Notícia cadastrada com sucesso!');
+            }).catch(function (error) {
+                    let error_msg = '[Erro] ' + error.message
+                    if (error.response) {
+                        // The request was made and the server responded with a status code
+                        // that falls out of the range of 2xx
+                        console.log(error.response.data);
+                        console.log(error.response.status);
+                        console.log(error.response.headers);
+                        error_msg += '\n' + error.response.data.message;
+                    } else if (error.request) {
+                        // The request was made but no response was received
+                        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                        // http.ClientRequest in node.js
+                        console.log(error.request);
+                    } else {
+                        // Something happened in setting up the request that triggered an Error
+                        console.log('Error', error.message);
+                    }
 
-            router.push('/noticia/' + newId);
+                    console.log(error.config);
+                    alert(error_msg);
+                });
+
+            
         }
     }
 }
