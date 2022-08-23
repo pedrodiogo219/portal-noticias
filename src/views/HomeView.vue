@@ -7,6 +7,7 @@
 <script>
 
 import { ref } from 'vue'
+import axios from 'axios';
 import FeedNoticias from '@/components/FeedNoticias.vue'
 
 export default {
@@ -20,9 +21,13 @@ export default {
             currentPath: window.location.hash,
         };
     },
-    created() {
+    async created() {
         this.noticias = ref([]);
-        this.noticias.value = JSON.parse(localStorage.getItem("noticias")) || [];
+        const response = await axios.get("http://localhost:8080/api/noticia");
+        console.log(response)
+        this.noticias.value = response.data;
+
+        JSON.parse(localStorage.getItem("noticias")) || [];
         this.$watch("noticias", (newVal) => {
             localStorage.setItem("noticias", JSON.stringify(newVal.value));
         }, { deep: true });
